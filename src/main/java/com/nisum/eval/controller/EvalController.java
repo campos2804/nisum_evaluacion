@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,6 +28,8 @@ import com.nisum.eval.utils.Validador;
 public class EvalController {
 	
 	private static final String RESPUESTA_OK = "Proceso OK.";
+	private static final String RESPUESTA_OK_ELIMINAR = "Eliminacion correcta.";
+	private static final String RESPUESTA_NO_ELIMINAR = "Error, No es posible eliminar.";
 	private static final String RESPUESTA_EXISTE_CORREO = "El correo existe.";
 	private static final String RESPUESTA_CORREO_INVALIDO = "Formato de correo no valido.";
 	private static final String RESPUESTA_ERROR_CONTRASEÑA = "Contraseña no valida";
@@ -48,7 +51,9 @@ public class EvalController {
 		this.regexPassord = regexPassord;
 	}
 
-
+	/**
+	 * Registro de una persona
+	 */
 	@PostMapping
 	public ResponseEntity<ResponseJson> create(@RequestBody Persona per){
 		ResponseJson respuesta = new ResponseJson();		
@@ -97,37 +102,59 @@ public class EvalController {
 		//return ResponseEntity.status(HttpStatus.CREATED).body(personaService.save(per));
 	}
 	
-	
+	/**
+	 * Buscar todos los registros
+	 * @return
+	 */
 	@GetMapping
 	public List<Persona> buscarTodos(){
-		
-    	
 		Iterable<Persona> personas = personaService.findAll();
 		List<Persona> result = new ArrayList<Persona>();
 		personas.forEach(result::add);
-		
 		if(result!=null && !result.isEmpty()  ) {	    	
 			return result;
 	    }
-		
-		
-		
 		return new ArrayList<Persona>(); 
 	}
 	
+	/**
+	 * Obtiene solo una persona
+	 * @param personaId
+	 * @return
+	 */
 	@GetMapping("/{personaId}")
-	public Persona buscarId(@PathVariable Integer personaId){
-		    	
-		Persona persona = personaService.findById(personaId);
-		
+	public Persona buscarId(@PathVariable Integer personaId){		    	
+		Persona persona = personaService.findById(personaId);		
 		if(persona!=null  ) {	    	
 			return persona;
-	    }
-		
-		
+	    }		
 		return new Persona(); 
 	}
 	
+	
+	/**
+	 * 
+	 * @param personaId
+	 * @return
+	 */
+	///@Operation(summary = "Delete Persona", description = "Elimina un registro de persona", tags = { "Persona Eliminar" })
+	@DeleteMapping(value = "/{personaId}")
+	public ResponseEntity<ResponseJson> delete(@PathVariable Integer personaId){
+		ResponseJson respuesta = new ResponseJson();		
+    	ResponseEntity<ResponseJson> response = null;
+    	Persona eliminar = new Persona();
+    	eliminar.setIdPersona(personaId);
+    	boolean b = personaService.delete(eliminar);
+	    
+	    //Exito!
+    	if(b) {
+    		respuesta.setMessage(RESPUESTA_OK_ELIMINAR);    		
+    	}else {
+    		respuesta.setMessage(RESPUESTA_NO_ELIMINAR);
+    	}
+    	response = new ResponseEntity<ResponseJson>(respuesta, HttpStatus.OK);
+		return response;
+	}
 	
 
 	

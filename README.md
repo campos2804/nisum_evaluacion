@@ -33,7 +33,7 @@ _El diagrama de clases es muy sencillo dos clases en una relacion de uno a mucho
 ## Base de Datos 🔩
 _La base de datos utilizada es H2, por lo cual no se agrega un script, todas las clases con la etiqueta @Entity seran creadas automaticamente por la aplicaicon al momento de ejecutarla._ 
 _se puede ingresar a la consola de administracion de H2 en el link (http://localhost:9898/h2-console/)_
-![Image text](https://github.com/campos2804/nisum_evaluacion/blob/main/baseh2-login.JPG) _
+_![Image text](https://github.com/campos2804/nisum_evaluacion/blob/main/baseh2-login.JPG) _
 _En el archivo application.properties estan los datos para realizar la conexion a la base:_ 
 _Driver Class: org.h2.Driver_
 _JDBC URL:	jdbc:h2:mem:testdb_
@@ -41,6 +41,7 @@ _User Name: nisum_
 _Password: musin_
 _![Image text](https://github.com/campos2804/nisum_evaluacion/blob/main/baseh2-primeravista.JPG)_
 
+## Probando la aplicacion
 
 
 

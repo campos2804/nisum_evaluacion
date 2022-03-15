@@ -15,13 +15,13 @@ _Java 8+ (https://www.oracle.com/java/technologies/downloads/)  _
 
 ### Instalación 🔧
 
-_Una vez descargado el proyecto y sus archivos fuentes se debe abrir con STS, "File -> Import...  Maven-> Existing Maven Projects -> Next " _
+_Una vez descargado el proyecto y sus archivos fuentes se debe abrir con STS, "File -> Import...  Maven-> Existing Maven Projects -> Next "_
 _Con el explorador buscas la carpeta donde se descargo el proyecto, marcar el archivo "/pom.xml" y seleccionar la opcion Finish_
 _En la perspectiva de proyecto aparecerá el proyecto de nombre "demo"._
-_Ahora se debe realizar un clean del proyecto. Boton izquierdo sonbre el nombre del proyecto "demo", opcion "Run as... " -> "Maven clean..."
-_Para ejecutar se debe ir al nombre del proyecto "demo", hacer clik izquierdo y seleccionar la opcion "Run as..."  -> "Spring boot app"
-_¡Listo! ahora se esta ejecutando la aplicacion demo.
-
+_Ahora se debe realizar un clean del proyecto. Boton izquierdo sonbre el nombre del proyecto "demo", opcion "Run as... " -> "Maven clean..."_
+_Para ejecutar se debe ir al nombre del proyecto "demo", hacer clik izquierdo y seleccionar la opcion "Run as..."  -> "Spring boot app"_
+_¡Listo! ahora se esta ejecutando la aplicacion demo._
+_ El servidor funciona en el puerto 9898_
 ![Image text](https://github.com/campos2804/nisum_evaluacion/blob/main/ejecutar.jpg)
 
 
@@ -29,4 +29,13 @@ _¡Listo! ahora se esta ejecutando la aplicacion demo.
 
 _El diagrama de clases es muy sencillo dos clases en una relacion de uno a muchos._
 ![Image text](https://github.com/campos2804/nisum_evaluacion/blob/main/diagrama-clases.JPG
+
+## Base de Datos 🔩
+_La base de datos utilizada es H2, por lo cual no se agrega un script, todas las clases con la etiqueta @Entity seran creadas automaticamente por la aplicaicon al momento de ejecutarla. 
+_se puede ingresar a la consola de administracion de H2 en el link (http://localhost:9898/h2-console/)_
+![Image text](https://github.com/campos2804/nisum_evaluacion/blob/main/baseh2-login.JPG)
+
+
+
+
 

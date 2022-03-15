@@ -28,7 +28,7 @@ _ El servidor funciona en el puerto 9898_
 ## Diagrama  ⌨️
 
 _El diagrama de clases es muy sencillo dos clases en una relacion de uno a muchos._
-_![Image text](https://github.com/campos2804/nisum_evaluacion/blob/main/diagrama-clases.JPG_
+_![Image text](https://github.com/campos2804/nisum_evaluacion/blob/main/diagrama-clases.JPG)_
 
 ## Base de Datos 🔩
 _La base de datos utilizada es H2, por lo cual no se agrega un script, todas las clases con la etiqueta @Entity seran creadas automaticamente por la aplicaicon al momento de ejecutarla._ 
